@@ -3,6 +3,8 @@ package com.sample.domain.member.controller;
 import com.sample.domain.member.dto.MemberRequestDto;
 import com.sample.domain.member.dto.MemberResponseDto;
 import com.sample.domain.member.service.MemberService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/users")
 @RequiredArgsConstructor
+@Api(tags = "회원관리", description = "회원관리 관련 APIs")
 public class MemberController {
 
     private final MemberService memberService;
@@ -40,6 +43,7 @@ public class MemberController {
 
     @ResponseBody
     @RequestMapping(value = "/me", method = {RequestMethod.GET})
+    @ApiOperation(value = "로그인한 회원정보")
     public ResponseEntity<MemberResponseDto> getCurrentUser() {
         return ResponseEntity.ok(memberService.getCurrentUserInfo());
     }

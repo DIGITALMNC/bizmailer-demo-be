@@ -86,9 +86,9 @@ public class BoardService {
 	}
 
 	@Transactional
-	public void removeBoardList(List<String> boardIdList) {
+	public void removeBoardList(List<Long> boardIdList) {
 		//child 객체 벌크 삭제
-		List<String> boardReplyIdList = boardReplyRepository.findBoardReplyList(boardIdList);
+		List<Long> boardReplyIdList = boardReplyRepository.findBoardReplyList(boardIdList);
 		boardReplyRepository.deleteByIdBulk(boardReplyIdList);
 		//본 객체 벌크 삭제
 		boardRepository.deleteByIdBulk(boardIdList);

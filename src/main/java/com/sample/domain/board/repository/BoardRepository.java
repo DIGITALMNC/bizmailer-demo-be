@@ -35,7 +35,7 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
 
     @Modifying(clearAutomatically = true) //벌크연산 후 영속성 컨텍스트 초기화
     @Query("delete from Board b where b.id in :boardIdList")
-    void deleteByIdBulk(@Param("boardIdList") List<String> boardIdList);
+    void deleteByIdBulk(@Param("boardIdList") List<Long> boardIdList);
 
 }
 	

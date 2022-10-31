@@ -18,11 +18,11 @@ public interface BoardReplyRepository extends JpaRepository<BoardReply, Long> {
 //    int countBoardReplyEntitiesByBoard_id(String id);
 
     @Query("select r.id from BoardReply r where r.board.id in :boardIdList")
-    List<String> findBoardReplyList(@Param("boardIdList") List<String> boardIdList);
+    List<Long> findBoardReplyList(@Param("boardIdList") List<Long> boardIdList);
 
     @Modifying(clearAutomatically = true) //벌크연산 후 영속성 컨텍스트 초기화
     @Query("delete from BoardReply r where r.id in :boardReplyIdList")
-    void deleteByIdBulk(@Param("boardReplyIdList") List<String> boardReplyIdList);
+    void deleteByIdBulk(@Param("boardReplyIdList") List<Long> boardReplyIdList);
 }
 	
 	

@@ -60,7 +60,7 @@ public class BoardController {
 
 	@DeleteMapping()
 	@ApiOperation(value = "게시판 본문 다중삭제(목록조회시)")
-	public void removeBoardList(@RequestParam("boardIdList") List<String> boardIdList) {
+	public void removeBoardList(@RequestParam("boardIdList") List<Long> boardIdList) {
 		boardService.removeBoardList(boardIdList);
 	}
 
