@@ -31,23 +31,26 @@ public class SecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
                 .csrf().disable()
-                .exceptionHandling()
-                .authenticationEntryPoint(jwtAuthenticationEntryPoint)
-                .accessDeniedHandler(jwtAccessDeniedHandler)
-                .and()
+                    .exceptionHandling()
+                    .authenticationEntryPoint(jwtAuthenticationEntryPoint)
+                    .accessDeniedHandler(jwtAccessDeniedHandler)
+                    .and()
                 .headers()
-                .frameOptions()
-                .sameOrigin()
-                .and()
+                    .frameOptions()
+                    .sameOrigin()
+                    .and()
                 .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
+                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                    .and()
                 .authorizeRequests()
-                .antMatchers("/auth/**", "/swagger-ui.html", "/swagger/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
+                    .antMatchers("/", "/csrf", "/auth/**", "/swagger-ui.html/**", "/swagger-resources/**", "/v2/api-docs", "/configuration/**","/webjars/**").permitAll()
+                    .anyRequest().authenticated()
+                    .and()
                 .apply(new JwtSecurityConfig(jwtUtil))
-                .and().build();
+                    .and()
+                .cors()
+                    .and()
+                .build();
     }
 
     @Bean

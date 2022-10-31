@@ -5,15 +5,19 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Getter
 @NoArgsConstructor
 @Table(name = "member")
 public class Member extends BaseEntity {
+
+    @Id
+    @GeneratedValue
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(name = "id", nullable = false)
+    private Long id;
 
     @Column(name="loginId")
     private String loginId;

@@ -19,6 +19,7 @@ public class MemberController {
         return ResponseEntity.ok(new MemberResponseDto());
     }
 
+
     @ResponseBody
     @RequestMapping(value = "/{id}", method = {RequestMethod.DELETE})
     public ResponseEntity<String> removeMember(@PathVariable Long id) {

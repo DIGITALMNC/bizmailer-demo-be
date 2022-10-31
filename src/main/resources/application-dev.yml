@@ -1,0 +1,15 @@
+server:
+  port: 8081
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  jpa:
+    hibernate:
+      ddl-auto: none
+#  datasource:
+#    driverClassName: org.mariadb.jdbc.Driver
+#    username: xxx
+#    password: xxx
+#    url: jdbc:mariadb://localhost:3306/xxx
