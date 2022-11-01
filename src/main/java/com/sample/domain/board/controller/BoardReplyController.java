@@ -1,8 +1,8 @@
-package com.sample.domain.boardReply.controller;
+package com.sample.domain.board.controller;
 
-import com.sample.domain.boardReply.dto.CreateBoardReplyDTO;
-import com.sample.domain.boardReply.dto.UpdateBoardReplyDTO;
-import com.sample.domain.boardReply.service.BoardReplyService;
+import com.sample.domain.board.dto.CreateBoardReplyDTO;
+import com.sample.domain.board.dto.UpdateBoardReplyDTO;
+import com.sample.domain.board.service.BoardReplyService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;

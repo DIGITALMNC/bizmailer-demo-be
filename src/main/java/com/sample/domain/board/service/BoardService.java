@@ -3,8 +3,9 @@ package com.sample.domain.board.service;
 import com.sample.domain.board.dto.*;
 import com.sample.domain.board.entity.Board;
 import com.sample.domain.board.repository.BoardRepository;
-import com.sample.domain.boardReply.repository.BoardReplyRepository;
+import com.sample.domain.board.repository.BoardReplyRepository;
 import com.sample.domain.member.entity.Member;
+import com.sample.domain.member.repository.MemberRepository;
 import com.sample.domain.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -26,11 +27,13 @@ public class BoardService {
 	private final BoardRepository boardRepository;
 	private final BoardReplyRepository boardReplyRepository;
 	private final MemberService memberService;
+
+	public final MemberRepository memberRepository;
 	
 	@Transactional
 	public Long insertBoard(CreateBoardDTO createBoardDTO) {
 
-		Member member = memberService.getUserNotOptional(createBoardDTO.getCreatedBy());
+		Member member = memberService.getCurrentUserInfoNotOptional();
 		Board res = boardRepository.save(createBoardDTO.toBoardEntity(createBoardDTO, member));
 
 		return res.getId();
@@ -71,7 +74,8 @@ public class BoardService {
 	public Long updateBoard(UpdateBoardDTO updateBoardDTO) {
 
 		Board found = this.getBoardNotOptional(updateBoardDTO.getId());
-		Member updatedBy = memberService.getUserNotOptional(updateBoardDTO.getUpdatedBy());
+		Member updatedBy = memberService.getCurrentUserInfoNotOptional();
+//		Member updatedBy = memberService.getUserNotOptional(updateBoardDTO.getUpdatedBy());
 
 		//게시물 수정
 		Board changed = found.changeBoard(updateBoardDTO, updatedBy);

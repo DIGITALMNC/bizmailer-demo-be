@@ -3,13 +3,11 @@ package com.sample.domain.board.entity;
 import com.sample.common.base.BaseEntity;
 import com.sample.domain.board.dto.UpdateBoardDTO;
 import com.sample.domain.board.entity.type.BoardType;
-import com.sample.domain.boardReply.entity.BoardReply;
 import com.sample.domain.member.entity.Member;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

@@ -1,14 +1,12 @@
-package com.sample.domain.boardReply.entity;
+package com.sample.domain.board.entity;
 
 import com.sample.common.base.BaseEntity;
-import com.sample.domain.board.entity.Board;
-import com.sample.domain.boardReply.dto.UpdateBoardReplyDTO;
+import com.sample.domain.board.dto.UpdateBoardReplyDTO;
 import com.sample.domain.member.entity.Member;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

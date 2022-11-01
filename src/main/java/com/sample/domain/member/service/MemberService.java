@@ -14,18 +14,24 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class MemberService {
 
     public final MemberRepository memberRepository;
 
-    @Transactional(readOnly = true)
     public MemberResponseDto getUserInfo(Long id) {
         return memberRepository.findById(id).map(MemberResponseDto::of).orElseThrow(() -> new RuntimeException("not found user"));
     }
 
-    @Transactional(readOnly = true)
     public MemberResponseDto getCurrentUserInfo() {
         return memberRepository.findByLoginId(SecurityUtil.getCurrentUserLoginId()).map(MemberResponseDto::of).orElseThrow(() -> new RuntimeException("not found login user"));
+    }
+
+    public Member getCurrentUserInfoNotOptional() {
+        return memberRepository.findByLoginId(SecurityUtil.getCurrentUserLoginId()).orElseThrow(() -> new RuntimeException("not found login user"));
+//        String id = SecurityUtil.getCurrentUserLoginId();
+//        Optional<Member> member = memberRepository.findByLoginId(SecurityUtil.getCurrentUserLoginId());
+//        return member.orElseThrow(() -> new RuntimeException("not found login user"));
     }
 
     public Member getUserNotOptional(Long id) {

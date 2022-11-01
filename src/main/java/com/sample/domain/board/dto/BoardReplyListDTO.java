@@ -1,6 +1,6 @@
-package com.sample.domain.boardReply.dto;
+package com.sample.domain.board.dto;
 
-import com.sample.domain.boardReply.entity.BoardReply;
+import com.sample.domain.board.entity.BoardReply;
 import lombok.Data;
 
 import java.time.LocalDateTime;

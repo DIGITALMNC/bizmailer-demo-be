@@ -1,8 +1,7 @@
 package com.sample.domain.board.dto;
 
 import com.sample.domain.board.entity.Board;
-import com.sample.domain.boardReply.dto.BoardReplyListDTO;
-import com.sample.domain.boardReply.entity.BoardReply;
+import com.sample.domain.board.entity.BoardReply;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Data;

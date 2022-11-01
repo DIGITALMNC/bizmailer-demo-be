@@ -10,8 +10,8 @@ public class CreateBoardDTO {
 
 	private String title;
 	private String content; 
-	private Long createdBy;
-	private Long updatedBy;
+//	private Long createdBy;
+//	private Long updatedBy;
 	
 	public static Board toBoardEntity(CreateBoardDTO createBoardDTO, Member user) {
 		Board board = Board.builder()

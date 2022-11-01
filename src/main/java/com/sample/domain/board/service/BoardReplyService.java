@@ -1,12 +1,12 @@
-package com.sample.domain.boardReply.service;
+package com.sample.domain.board.service;
 
 import com.sample.domain.board.entity.Board;
 import com.sample.domain.board.repository.BoardRepository;
 import com.sample.domain.board.service.BoardService;
-import com.sample.domain.boardReply.dto.CreateBoardReplyDTO;
-import com.sample.domain.boardReply.dto.UpdateBoardReplyDTO;
-import com.sample.domain.boardReply.entity.BoardReply;
-import com.sample.domain.boardReply.repository.BoardReplyRepository;
+import com.sample.domain.board.dto.CreateBoardReplyDTO;
+import com.sample.domain.board.dto.UpdateBoardReplyDTO;
+import com.sample.domain.board.entity.BoardReply;
+import com.sample.domain.board.repository.BoardReplyRepository;
 import com.sample.domain.member.entity.Member;
 import com.sample.domain.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
